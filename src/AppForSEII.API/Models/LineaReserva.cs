@@ -10,7 +10,7 @@ public class LineaReserva
     public LineaReserva(int id, TiempoReserva tiempoReserva, decimal precioSubtotal)
     {
         Id = id;
-        TiempoReserva = tiempoReserva;
+        TiempoReserva = tiempoReserva;  
         PrecioSubtotal = precioSubtotal;
     }
 
