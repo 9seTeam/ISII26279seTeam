@@ -1,6 +1,6 @@
 namespace AppForSEII.API.Models;
 
-public enum TipoReserva
+public enum TiempoReserva
 {
     UnaHora,
     DosHoras,
