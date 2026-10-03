@@ -18,6 +18,7 @@ public class Impresora3D
         PrecioReserva = precioReserva;
     }
 
+    [Key]
     public int Id { get; set; }
     public string Nombre { get; set; } = string.Empty;
     public string Modelo { get; set; } = string.Empty;

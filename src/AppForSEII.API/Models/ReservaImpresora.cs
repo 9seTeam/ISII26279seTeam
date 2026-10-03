@@ -17,6 +17,7 @@ public class ReservaImpresora
         Metodo = metodoPago;
     }
 
+    [Key]
     public int Id { get; set; }
     public DateTime FechaReserva { get; set; }
     public string NombreCliente { get; set; }

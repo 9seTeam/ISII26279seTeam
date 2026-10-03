@@ -13,6 +13,7 @@ public class LineaReserva
         PrecioSubtotal = precioSubtotal;
     }
 
+    [Key]
     public int Id { get; set; }
     public TiempoReserva TiempoReserva { get; set; }
     public decimal PrecioSubtotal { get; set; }
