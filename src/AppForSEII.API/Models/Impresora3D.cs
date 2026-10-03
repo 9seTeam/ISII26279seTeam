@@ -20,9 +20,12 @@ public class Impresora3D
 
     [Key]
     public int Id { get; set; }
+    [MaxLength(20)]
     public string Nombre { get; set; } = string.Empty;
+    [MaxLength(50)]
     public string Modelo { get; set; } = string.Empty;
     public TipoImpresora Tipo { get; set; }
+    [MaxLength(200)]
     public string Descripcion { get; set; } = string.Empty;
     public decimal PrecioKilovatioHora { get; set; }
     public decimal PrecioReserva { get; set; }
