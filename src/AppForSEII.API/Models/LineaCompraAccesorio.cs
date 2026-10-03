@@ -17,4 +17,10 @@ public class LineaCompraAccesorio
     public int Cantidad { get; set; }
     public decimal PrecioUnidad { get; set; }
     public decimal Subtotal { get; set; }
+
+    public int CompraAccesoriosId { get; set; }
+    public CompraAccesorios CompraAccesorios { get; set; }
+
+    public int AccesorioId { get; set; }
+    public Accesorio Accesorio { get; set; }
 }

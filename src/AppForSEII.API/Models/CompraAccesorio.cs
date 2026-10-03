@@ -30,5 +30,10 @@ public class CompraAccesorios
     public decimal PrecioTotal { get; set; }
     [Required]
     public MetodoPago MetodoPago { get; set; }
+
+    public string ClienteId { get; set; }
+    public Cliente Cliente { get; set; }
+
+    public List<LineaCompraAccesorio> Lineas { get; set; } = new();
    
 }
