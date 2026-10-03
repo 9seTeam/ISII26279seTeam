@@ -6,20 +6,21 @@ public class Accesorio
     {
     }
 
-    public Accesorio(int id, string nombre, CategoriaAccesorio categoria, string compatibilidad,
+    public Accesorio (string nombre, CategoriaAccesorio categoria, string compatibilidad,
         int cantidadDisponible, decimal precio)
     {
-        Id = id;
         Nombre = nombre;
         Categoria = categoria;
         Compatibilidad = compatibilidad;
         CantidadDisponible = cantidadDisponible;
         Precio = precio;
     }
-
+    [Key]
     public int Id { get; set; }
+    [MaxLength(30)]
     public string Nombre { get; set; }
     public CategoriaAccesorio Categoria { get; set; }
+    [MaxLength(10)]
     public string Compatibilidad { get; set; }
     public int CantidadDisponible { get; set; }
     public decimal Precio { get; set; }
