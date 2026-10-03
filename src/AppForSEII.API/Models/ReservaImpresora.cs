@@ -6,10 +6,9 @@ public class ReservaImpresora
     {
     }
 
-    public ReservaImpresora(int id, DateTime fechaReserva, string nombreCliente, string apellidosCliente, string direccionFacturacion,
+    public ReservaImpresora(DateTime fechaReserva, string nombreCliente, string apellidosCliente, string direccionFacturacion,
         decimal precioTotal,MetodoPago metodoPago)
     {
-        Id = id;
         FechaReserva = fechaReserva;
         NombreCliente = nombreCliente;
         ApellidosCliente = apellidosCliente;
@@ -18,12 +17,17 @@ public class ReservaImpresora
         Metodo = metodoPago;
     }
 
+    [Key]
     public int Id { get; set; }
     public DateTime FechaReserva { get; set; }
+    [Required, MaxLength(20)]
     public string NombreCliente { get; set; }
+    [Required, MaxLength(50)]
     public string ApellidosCliente { get; set; } 
+    [Required, MaxLength(100)]
     public string DireccionFacturacion { get; set; } 
     public decimal PrecioTotal { get; set; }
+    [Required]
     public MetodoPago Metodo { get; set; }
    
 }
