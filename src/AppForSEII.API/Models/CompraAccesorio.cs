@@ -6,10 +6,9 @@ public class CompraAccesorios
     {
     }
 
-    public CompraAccesorios(int id, string nombreCliente, string apellidosCliente, string direccionEnvio,
+    public CompraAccesorios(string nombreCliente, string apellidosCliente, string direccionEnvio,
         string numeroTelefono, MetodoPago metodoPago)
     {
-        Id = id;
         FechaCompra = DateTime.Now;
         NombreCliente = nombreCliente;
         ApellidosCliente = apellidosCliente;

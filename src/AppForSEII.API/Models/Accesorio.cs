@@ -6,10 +6,9 @@ public class Accesorio
     {
     }
 
-    public Accesorio(int id, string nombre, CategoriaAccesorio categoria, string compatibilidad,
+    public Accesorio (string nombre, CategoriaAccesorio categoria, string compatibilidad,
         int cantidadDisponible, decimal precio)
     {
-        Id = id;
         Nombre = nombre;
         Categoria = categoria;
         Compatibilidad = compatibilidad;

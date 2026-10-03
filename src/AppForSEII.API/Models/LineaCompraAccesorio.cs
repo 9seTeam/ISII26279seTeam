@@ -6,9 +6,8 @@ public class LineaCompraAccesorio
     {
     }
 
-    public LineaCompraAccesorio(int id, int cantidad, decimal precioUnidad, decimal subtotal)
+    public LineaCompraAccesorio(int cantidad, decimal precioUnidad, decimal subtotal)
     {
-        Id = id;
         Cantidad = cantidad;
         PrecioUnidad = precioUnidad;
         Subtotal = subtotal;
