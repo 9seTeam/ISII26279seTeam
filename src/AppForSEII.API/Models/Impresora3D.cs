@@ -7,10 +7,9 @@ public class Impresora3D
     {
     }
 
-    public Impresora3D(int id, string nombre, string modelo, TipoImpresora tipo, string descripcion,
+    public Impresora3D(string nombre, string modelo, TipoImpresora tipo, string descripcion,
         decimal precioKilovatioHora, decimal precioReserva)
     {
-        Id = id;
         Nombre = nombre;
         Modelo = modelo;
         Tipo = tipo;

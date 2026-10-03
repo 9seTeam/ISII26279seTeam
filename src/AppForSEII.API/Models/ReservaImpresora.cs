@@ -6,10 +6,9 @@ public class ReservaImpresora
     {
     }
 
-    public ReservaImpresora(int id, DateTime fechaReserva, string nombreCliente, string apellidosCliente, string direccionFacturacion,
+    public ReservaImpresora(DateTime fechaReserva, string nombreCliente, string apellidosCliente, string direccionFacturacion,
         decimal precioTotal,MetodoPago metodoPago)
     {
-        Id = id;
         FechaReserva = fechaReserva;
         NombreCliente = nombreCliente;
         ApellidosCliente = apellidosCliente;
