@@ -20,10 +20,14 @@ public class ReservaImpresora
     [Key]
     public int Id { get; set; }
     public DateTime FechaReserva { get; set; }
+    [Required, MaxLength(20)]
     public string NombreCliente { get; set; }
+    [Required, MaxLength(50)]
     public string ApellidosCliente { get; set; } 
+    [Required, MaxLength(100)]
     public string DireccionFacturacion { get; set; } 
     public decimal PrecioTotal { get; set; }
+    [Required]
     public MetodoPago Metodo { get; set; }
    
 }
