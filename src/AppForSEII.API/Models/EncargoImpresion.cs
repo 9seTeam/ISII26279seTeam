@@ -17,14 +17,19 @@ public class EncargoImpresion
         PrecioTotal = precioTotal;
         MetodoPago = metodoPago;
     }
-
+    [Key]
     public int Id { get; set; }
     public DateTime FechaEncargo { get; set; }
+    [Required, MaxLength(20)]
     public string NombreCliente { get; set; }
+    [Required, MaxLength(50)]
     public string ApellidosCliente { get; set; }
+    [Required, MaxLength(100)]
     public string DireccionEnvio { get; set; }
+    [Required, MaxLength(20)]
     public string NumeroTelefono { get; set; }
     public string? Descripcion { get; set; }
     public decimal PrecioTotal { get; set; }
+    [Required, MaxLength(20)]
     public MetodoPago MetodoPago { get; set; }
 }
