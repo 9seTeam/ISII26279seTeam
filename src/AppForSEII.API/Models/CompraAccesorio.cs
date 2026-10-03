@@ -19,15 +19,16 @@ public class CompraAccesorios
     [Key]
     public int Id { get; set; }
     public DateTime FechaCompra { get; set; }
-    [MaxLength(30)]
+    [MaxLength(30)] [Required]
     public string NombreCliente { get; set; } 
-    [MaxLength(30)]
+    [MaxLength(30)] [Required]
     public string ApellidosCliente { get; set; } 
-    [MaxLength(50)]
+    [MaxLength(50)] [Required]
     public string DireccionEnvio { get; set; } 
-    [MaxLength(10)]
+    [MaxLength(10)] [Required]
     public string NumeroTelefono { get; set; } 
     public decimal PrecioTotal { get; set; }
+    [Required]
     public MetodoPago MetodoPago { get; set; }
    
 }
