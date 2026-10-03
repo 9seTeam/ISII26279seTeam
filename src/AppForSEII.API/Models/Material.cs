@@ -17,7 +17,7 @@ public class Material
     public int Id { get; set; }
 
     [MaxLength(30)]
-    public string Nombre { get; set; } = string.Empty;
+    public string Nombre { get; set; }
 
     public decimal PrecioPorGramo { get; set; }
     public decimal StockGramos { get; set; }
