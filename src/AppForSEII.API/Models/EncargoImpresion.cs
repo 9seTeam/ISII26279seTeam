@@ -32,4 +32,9 @@ public class EncargoImpresion
     public decimal PrecioTotal { get; set; }
     [Required, MaxLength(20)]
     public MetodoPago MetodoPago { get; set; }
+
+    public string ClienteId { get; set; }
+    public Cliente Cliente { get; set; }
+
+    public List<LineaEncargo> Lineas { get; set; } = new();
 }
