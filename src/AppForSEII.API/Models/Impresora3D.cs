@@ -7,10 +7,9 @@ public class Impresora3D
     {
     }
 
-    public Impresora3D(int id, string nombre, string modelo, TipoImpresora tipo, string descripcion,
+    public Impresora3D(string nombre, string modelo, TipoImpresora tipo, string descripcion,
         decimal precioKilovatioHora, decimal precioReserva)
     {
-        Id = id;
         Nombre = nombre;
         Modelo = modelo;
         Tipo = tipo;
@@ -19,10 +18,14 @@ public class Impresora3D
         PrecioReserva = precioReserva;
     }
 
+    [Key]
     public int Id { get; set; }
+    [MaxLength(20)]
     public string Nombre { get; set; } = string.Empty;
+    [MaxLength(50)]
     public string Modelo { get; set; } = string.Empty;
     public TipoImpresora Tipo { get; set; }
+    [MaxLength(200)]
     public string Descripcion { get; set; } = string.Empty;
     public decimal PrecioKilovatioHora { get; set; }
     public decimal PrecioReserva { get; set; }

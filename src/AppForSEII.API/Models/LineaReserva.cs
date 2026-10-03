@@ -7,15 +7,21 @@ public class LineaReserva
     {
     }
 
-    public LineaReserva(int id, TiempoReserva tiempoReserva, decimal precioSubtotal)
+    public LineaReserva(TiempoReserva tiempoReserva, decimal precioSubtotal)
     {
-        Id = id;
         TiempoReserva = tiempoReserva;  
         PrecioSubtotal = precioSubtotal;
     }
 
+    [Key]
     public int Id { get; set; }
     public TiempoReserva TiempoReserva { get; set; }
     public decimal PrecioSubtotal { get; set; }
+
+    public int ReservaImpresoraId { get; set; }
+    public ReservaImpresora ReservaImpresora { get; set; }
+
+    public int ImpresoraId { get; set; }
+    public Impresora3D Impresora { get; set; }  
    
 }
