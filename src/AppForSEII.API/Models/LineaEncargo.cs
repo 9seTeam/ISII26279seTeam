@@ -12,7 +12,7 @@ public class LineaEncargo
         PrecioUnidad = precioUnidad;
         Subtotal = subtotal;
     }
-
+    [Key]
     public int Id { get; set; }
     public int Cantidad { get; set; }
     public decimal PrecioUnidad { get; set; }
