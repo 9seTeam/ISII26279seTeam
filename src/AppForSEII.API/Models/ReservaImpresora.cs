@@ -29,5 +29,10 @@ public class ReservaImpresora
     public decimal PrecioTotal { get; set; }
     [Required]
     public MetodoPago Metodo { get; set; }
+
+    public string ClienteId { get; set; }
+    public Cliente Cliente { get; set; }
+
+    public List<LineaReserva> Lineas { get; set; } = new();
    
 }
