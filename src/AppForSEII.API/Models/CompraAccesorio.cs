@@ -6,10 +6,9 @@ public class CompraAccesorios
     {
     }
 
-    public CompraAccesorios(int id, string nombreCliente, string apellidosCliente, string direccionEnvio,
+    public CompraAccesorios(string nombreCliente, string apellidosCliente, string direccionEnvio,
         string numeroTelefono, MetodoPago metodoPago)
     {
-        Id = id;
         FechaCompra = DateTime.Now;
         NombreCliente = nombreCliente;
         ApellidosCliente = apellidosCliente;
@@ -17,13 +16,17 @@ public class CompraAccesorios
         NumeroTelefono = numeroTelefono;
         MetodoPago = metodoPago;
     }
-
+    [Key]
     public int Id { get; set; }
     public DateTime FechaCompra { get; set; }
-    public string NombreCliente { get; set; } = string.Empty;
-    public string ApellidosCliente { get; set; } = string.Empty;
-    public string DireccionEnvio { get; set; } = string.Empty;
-    public string NumeroTelefono { get; set; } = string.Empty;
+    [MaxLength(30)]
+    public string NombreCliente { get; set; } 
+    [MaxLength(30)]
+    public string ApellidosCliente { get; set; } 
+    [MaxLength(50)]
+    public string DireccionEnvio { get; set; } 
+    [MaxLength(10)]
+    public string NumeroTelefono { get; set; } 
     public decimal PrecioTotal { get; set; }
     public MetodoPago MetodoPago { get; set; }
    
