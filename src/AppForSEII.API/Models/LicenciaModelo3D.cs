@@ -18,4 +18,7 @@ public class LicenciaModelo3D
     [MaxLength(30)]
     public string Nombre { get; set; }
     public DateTime FechaExpiracion { get; set; }
+
+    public int ModeloId { get; set; }
+    public Modelo3D Modelo { get; set; }
 }
