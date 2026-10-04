@@ -41,7 +41,9 @@ public class CompraModelo3D
     [Required]
     public MetodoPago MetodoPago { get; set; }
 
-    public string ClienteId { get; set; } = string.Empty;
-    public Cliente? Cliente { get; set; }
+    public string ClienteId { get; set; }
+    public Cliente Cliente { get; set; }
+
+    public List<LineaCompraModelo> Lineas { get; set; } = new();
 
 }
