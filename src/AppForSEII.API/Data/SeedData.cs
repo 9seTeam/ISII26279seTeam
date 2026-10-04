@@ -19,6 +19,12 @@ namespace AppForSEII.API.Data {
                 logger.LogError(ex, "An error occurred seeding the Users in the Database.");
             }
 
+            try {
+                SeedImpresoras3D(dbContext);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding the Impresoras3D in the Database.");
+            }
  
 
         }
@@ -70,6 +76,48 @@ namespace AppForSEII.API.Data {
             }
 
         }
+
+        public static void SeedImpresoras3D(ApplicationDbContext dbcontext) {
+
+            if (dbcontext.Impresoras3Ds.FirstOrDefault(i => i.Nombre == "HP") == null) {
+                Impresora3D impresora = new Impresora3D(
+                "HP",
+                "HP V2",
+                TipoImpresora.Filamento,
+                "Impresora de sobremesa, ideal para tener en casa",
+                0.25m,
+                5.00m);
+
+                dbcontext.Impresoras3Ds.Add(impresora);
+            }
+
+            if (dbcontext.Impresoras3Ds.FirstOrDefault(i => i.Nombre == "Lenovo") == null) {
+                Impresora3D impresora = new Impresora3D(
+                "Lenovo",
+                "Lenovo X",
+                TipoImpresora.Resina,
+                "Impresora de resina de alta precisión",
+                0.30m,
+                7.50m);
+
+                dbcontext.Impresoras3Ds.Add(impresora);
+            }
+
+            if (dbcontext.Impresoras3Ds.FirstOrDefault(i => i.Nombre == "Prink") == null) {
+                Impresora3D impresora = new Impresora3D(
+                "Prink",
+                "Prink MK4",
+                TipoImpresora.Polimero,
+                "Impresora de gama alta para polímeros técnicos",
+                0.35m,
+                9.00m);
+
+                dbcontext.Impresoras3Ds.Add(impresora);
+            }        
+
+            dbcontext.SaveChanges();
+        }
+
 
 
 
