@@ -26,7 +26,12 @@ namespace AppForSEII.API.Data {
                 logger.LogError(ex, "An error occurred seeding the Impresoras3D in the Database.");
             }
  
-
+            try {
+                SeedAccesorios(dbContext);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding the Accesorios in the Database.");
+            }
         }
 
         public static void SeedRoles(RoleManager<IdentityRole> roleManager, List<string> roles) {
@@ -76,6 +81,44 @@ namespace AppForSEII.API.Data {
             }
 
         }
+        
+        public static void SeedAccesorios(ApplicationDbContext dbcontext) {
+
+    if (dbcontext.Accesorios.FirstOrDefault(a => a.Nombre == "Boquilla pfa") == null) {
+        Accesorio accesorio = new Accesorio(
+            "Boquilla pfa",
+            CategoriaAccesorio.Boquillas,
+            "Resina",
+            20,
+            8.50m);
+
+        dbcontext.Accesorios.Add(accesorio);
+    }
+
+    if (dbcontext.Accesorios.FirstOrDefault(a => a.Nombre == "Allen") == null) {
+        Accesorio accesorio = new Accesorio(
+            "Allen",
+            CategoriaAccesorio.Herramientas,
+            "Universal",
+            10,
+            25.00m);
+
+        dbcontext.Accesorios.Add(accesorio);
+    }
+
+    if (dbcontext.Accesorios.FirstOrDefault(a => a.Nombre == "LimpiaFull") == null) {
+        Accesorio accesorio = new Accesorio(
+            "LimpiaFull",
+            CategoriaAccesorio.KitsLimpieza,
+            "Universal",
+            15,
+            18.00m);
+
+        dbcontext.Accesorios.Add(accesorio);
+    }
+
+    dbcontext.SaveChanges();
+}
 
         public static void SeedImpresoras3D(ApplicationDbContext dbcontext) {
 
