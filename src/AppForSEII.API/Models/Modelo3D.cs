@@ -6,9 +6,8 @@ public class Modelo3D
     {
     }
 
-    public Modelo3D(int id, string nombre, string categoria, FormatoModelo3D formato, decimal precio)
+    public Modelo3D(string nombre, string categoria, FormatoModelo3D formato, decimal precio)
     {
-        Id = id;
         Nombre = nombre;
         Categoria = categoria;
         Formato = formato;

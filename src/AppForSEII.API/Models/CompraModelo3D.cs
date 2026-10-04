@@ -6,10 +6,9 @@ public class CompraModelo3D
     {
     }
 
-    public CompraModelo3D(int id, string nombreCliente, string apellidosCliente, string correoElectronico,
+    public CompraModelo3D(string nombreCliente, string apellidosCliente, string correoElectronico,
         string direccionFacturacion, string? descripcion, MetodoPago metodoPago)
     {
-        Id = id;
         FechaCompra = DateTime.Now;
         NombreCliente = nombreCliente;
         ApellidosCliente = apellidosCliente;
