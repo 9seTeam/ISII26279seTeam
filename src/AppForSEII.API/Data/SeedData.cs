@@ -25,8 +25,20 @@ namespace AppForSEII.API.Data {
             catch (Exception ex) {
                 logger.LogError(ex, "An error occurred seeding the 3D models in the Database.");
             }
+          
+            try{
+                SeedImpresoras3D(dbContext);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding the Impresoras3D in the Database.");
+            }
  
-
+            try {
+                SeedAccesorios(dbContext);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding the Accesorios in the Database.");
+            }
         }
 
         public static void SeedRoles(RoleManager<IdentityRole> roleManager, List<string> roles) {
@@ -76,6 +88,86 @@ namespace AppForSEII.API.Data {
             }
 
         }
+        
+        public static void SeedAccesorios(ApplicationDbContext dbcontext) {
+
+    if (dbcontext.Accesorios.FirstOrDefault(a => a.Nombre == "Boquilla pfa") == null) {
+        Accesorio accesorio = new Accesorio(
+            "Boquilla pfa",
+            CategoriaAccesorio.Boquillas,
+            "Resina",
+            20,
+            8.50m);
+
+        dbcontext.Accesorios.Add(accesorio);
+    }
+
+    if (dbcontext.Accesorios.FirstOrDefault(a => a.Nombre == "Allen") == null) {
+        Accesorio accesorio = new Accesorio(
+            "Allen",
+            CategoriaAccesorio.Herramientas,
+            "Universal",
+            10,
+            25.00m);
+
+        dbcontext.Accesorios.Add(accesorio);
+    }
+
+    if (dbcontext.Accesorios.FirstOrDefault(a => a.Nombre == "LimpiaFull") == null) {
+        Accesorio accesorio = new Accesorio(
+            "LimpiaFull",
+            CategoriaAccesorio.KitsLimpieza,
+            "Universal",
+            15,
+            18.00m);
+
+        dbcontext.Accesorios.Add(accesorio);
+    }
+
+    dbcontext.SaveChanges();
+}
+
+        public static void SeedImpresoras3D(ApplicationDbContext dbcontext) {
+
+            if (dbcontext.Impresoras3Ds.FirstOrDefault(i => i.Nombre == "HP") == null) {
+                Impresora3D impresora = new Impresora3D(
+                "HP",
+                "HP V2",
+                TipoImpresora.Filamento,
+                "Impresora de sobremesa, ideal para tener en casa",
+                0.25m,
+                5.00m);
+
+                dbcontext.Impresoras3Ds.Add(impresora);
+            }
+
+            if (dbcontext.Impresoras3Ds.FirstOrDefault(i => i.Nombre == "Lenovo") == null) {
+                Impresora3D impresora = new Impresora3D(
+                "Lenovo",
+                "Lenovo X",
+                TipoImpresora.Resina,
+                "Impresora de resina de alta precisión",
+                0.30m,
+                7.50m);
+
+                dbcontext.Impresoras3Ds.Add(impresora);
+            }
+
+            if (dbcontext.Impresoras3Ds.FirstOrDefault(i => i.Nombre == "Prink") == null) {
+                Impresora3D impresora = new Impresora3D(
+                "Prink",
+                "Prink MK4",
+                TipoImpresora.Polimero,
+                "Impresora de gama alta para polímeros técnicos",
+                0.35m,
+                9.00m);
+
+                dbcontext.Impresoras3Ds.Add(impresora);
+            }        
+
+            dbcontext.SaveChanges();
+        }
+
 
         public static void SeedModelos3D(ApplicationDbContext dbContext) {
             // Evita duplicar datos si la aplicación se arranca varias veces
