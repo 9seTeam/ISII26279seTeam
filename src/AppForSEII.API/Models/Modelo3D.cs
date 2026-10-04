@@ -14,8 +14,13 @@ public class Modelo3D
         Precio = precio;
     }
 
+    [Key]
     public int Id { get; set; }
+
+    [MaxLength(30)]
     public string Nombre { get; set; } 
+    
+    [MaxLength(30)]
     public string Categoria { get; set; } 
     public FormatoModelo3D Formato { get; set; }
     public decimal Precio { get; set; }

@@ -12,7 +12,10 @@ public class LicenciaModelo3D
         FechaExpiracion = fechaExpiracion;
     }
 
+    [Key]
     public int Id { get; set; }
+    
+    [MaxLength(30)]
     public string Nombre { get; set; }
     public DateTime FechaExpiracion { get; set; }
 }

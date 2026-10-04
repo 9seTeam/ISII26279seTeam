@@ -18,14 +18,27 @@ public class CompraModelo3D
         MetodoPago = metodoPago;
     }
 
+    [Key]
     public int Id { get; set; }
     public DateTime FechaCompra { get; set; }
+
+    [Required][MaxLength(30)]
     public string NombreCliente { get; set; }
+
+    [Required][MaxLength(30)]
     public string ApellidosCliente { get; set; }
+
+    [MaxLength(30)]
     public string CorreoElectronico { get; set; }
+
+    [Required][MaxLength(30)]
     public string DireccionFacturacion { get; set; }
+
+    [MaxLength(50)]
     public string? Descripcion { get; set; }
     public decimal PrecioTotal { get; set; }
+
+    [Required]
     public MetodoPago MetodoPago { get; set; }
 
     public string ClienteId { get; set; } = string.Empty;
