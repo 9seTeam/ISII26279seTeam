@@ -39,6 +39,13 @@ namespace AppForSEII.API.Data {
             catch (Exception ex) {
                 logger.LogError(ex, "An error occurred seeding the Accesorios in the Database.");
             }
+
+            try {
+                SeedPiezas3D(dbContext);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding the Piezas3D in the Database.");
+            }
         }
 
         public static void SeedRoles(RoleManager<IdentityRole> roleManager, List<string> roles) {
@@ -168,6 +175,39 @@ namespace AppForSEII.API.Data {
             dbcontext.SaveChanges();
         }
 
+    
+
+    public static void SeedPiezas3D(ApplicationDbContext dbcontext) {
+
+    if (dbcontext.Piezas3Ds.FirstOrDefault(p => p.Nombre == "Brazo de Dragon") == null) {
+        Pieza3D pieza = new Pieza3D(
+            "Brazo de Dragon",
+            45m,
+            CategoriaPieza.MiniaturasYMaquetas);
+
+        dbcontext.Piezas3Ds.Add(pieza);
+    }
+
+    if (dbcontext.Piezas3Ds.FirstOrDefault(p => p.Nombre == "Base Torre de Pisa") == null) {
+        Pieza3D pieza = new Pieza3D(
+            "Base Torre de Pisa",
+            80m,
+            CategoriaPieza.Decoracion);
+
+        dbcontext.Piezas3Ds.Add(pieza);
+    }
+
+    if (dbcontext.Piezas3Ds.FirstOrDefault(p => p.Nombre == "Reina Ajedrez") == null) {
+        Pieza3D pieza = new Pieza3D(
+            "Reina Ajedrez",
+            15m,
+            CategoriaPieza.MiniaturasYMaquetas);
+
+        dbcontext.Piezas3Ds.Add(pieza);
+    }
+
+    dbcontext.SaveChanges();
+}
 
         public static void SeedModelos3D(ApplicationDbContext dbContext) {
             // Evita duplicar datos si la aplicación se arranca varias veces
