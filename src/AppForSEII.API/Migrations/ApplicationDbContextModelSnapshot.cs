@@ -342,20 +342,12 @@ namespace AppForSEII.API.Migrations
                     b.Property<DateTime>("FechaExpiracion")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Modelo3DId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ModeloId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ModeloId");
 
                     b.ToTable("LicenciasModelo3Ds");
                 });
@@ -557,6 +549,8 @@ namespace AppForSEII.API.Migrations
                         .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LicenciaModelo3DId");
 
                     b.ToTable("Modelos3Ds");
                 });
@@ -806,17 +800,6 @@ namespace AppForSEII.API.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("AppForSEII.API.Models.LicenciaModelo3D", b =>
-                {
-                    b.HasOne("AppForSEII.API.Models.Modelo3D", "Modelo")
-                        .WithMany()
-                        .HasForeignKey("ModeloId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Modelo");
-                });
-
             modelBuilder.Entity("AppForSEII.API.Models.LineaCompraAccesorio", b =>
                 {
                     b.HasOne("AppForSEII.API.Models.Accesorio", "Accesorio")
@@ -906,6 +889,17 @@ namespace AppForSEII.API.Migrations
                     b.HasOne("AppForSEII.API.Models.Pieza3D", null)
                         .WithMany("MaterialesValidos")
                         .HasForeignKey("Pieza3DId");
+                });
+
+            modelBuilder.Entity("AppForSEII.API.Models.Modelo3D", b =>
+                {
+                    b.HasOne("AppForSEII.API.Models.LicenciaModelo3D", "Licencia")
+                        .WithMany()
+                        .HasForeignKey("LicenciaModelo3DId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Licencia");
                 });
 
             modelBuilder.Entity("AppForSEII.API.Models.ReservaImpresora", b =>

@@ -90,20 +90,17 @@ namespace AppForSEII.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Modelos3Ds",
+                name: "LicenciasModelo3Ds",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Categoria = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Formato = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<decimal>(type: "decimal(8,2)", precision: 8, scale: 2, nullable: false),
-                    LicenciaModelo3DId = table.Column<int>(type: "int", nullable: false)
+                    FechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Modelos3Ds", x => x.Id);
+                    table.PrimaryKey("PK_LicenciasModelo3Ds", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -333,23 +330,24 @@ namespace AppForSEII.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LicenciasModelo3Ds",
+                name: "Modelos3Ds",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    FechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Modelo3DId = table.Column<int>(type: "int", nullable: false),
-                    ModeloId = table.Column<int>(type: "int", nullable: false)
+                    Categoria = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Formato = table.Column<int>(type: "int", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(8,2)", precision: 8, scale: 2, nullable: false),
+                    LicenciaModelo3DId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LicenciasModelo3Ds", x => x.Id);
+                    table.PrimaryKey("PK_Modelos3Ds", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LicenciasModelo3Ds_Modelos3Ds_ModeloId",
-                        column: x => x.ModeloId,
-                        principalTable: "Modelos3Ds",
+                        name: "FK_Modelos3Ds_LicenciasModelo3Ds_LicenciaModelo3DId",
+                        column: x => x.LicenciaModelo3DId,
+                        principalTable: "LicenciasModelo3Ds",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -405,6 +403,34 @@ namespace AppForSEII.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LineaReservas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TiempoReserva = table.Column<int>(type: "int", nullable: false),
+                    PrecioSubtotal = table.Column<decimal>(type: "decimal(8,2)", precision: 8, scale: 2, nullable: false),
+                    ReservaImpresoraId = table.Column<int>(type: "int", nullable: false),
+                    ImpresoraId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LineaReservas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LineaReservas_Impresoras3Ds_ImpresoraId",
+                        column: x => x.ImpresoraId,
+                        principalTable: "Impresoras3Ds",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LineaReservas_ReservaImpresoras_ReservaImpresoraId",
+                        column: x => x.ReservaImpresoraId,
+                        principalTable: "ReservaImpresoras",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LineaCompraModelos",
                 columns: table => new
                 {
@@ -429,34 +455,6 @@ namespace AppForSEII.API.Migrations
                         name: "FK_LineaCompraModelos_Modelos3Ds_Modelo3DId",
                         column: x => x.Modelo3DId,
                         principalTable: "Modelos3Ds",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "LineaReservas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TiempoReserva = table.Column<int>(type: "int", nullable: false),
-                    PrecioSubtotal = table.Column<decimal>(type: "decimal(8,2)", precision: 8, scale: 2, nullable: false),
-                    ReservaImpresoraId = table.Column<int>(type: "int", nullable: false),
-                    ImpresoraId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LineaReservas", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_LineaReservas_Impresoras3Ds_ImpresoraId",
-                        column: x => x.ImpresoraId,
-                        principalTable: "Impresoras3Ds",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_LineaReservas_ReservaImpresoras_ReservaImpresoraId",
-                        column: x => x.ReservaImpresoraId,
-                        principalTable: "ReservaImpresoras",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -552,11 +550,6 @@ namespace AppForSEII.API.Migrations
                 column: "ClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LicenciasModelo3Ds_ModeloId",
-                table: "LicenciasModelo3Ds",
-                column: "ModeloId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_LineaCompraAccesorios_AccesorioId",
                 table: "LineaCompraAccesorios",
                 column: "AccesorioId");
@@ -607,6 +600,11 @@ namespace AppForSEII.API.Migrations
                 column: "Pieza3DId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Modelos3Ds_LicenciaModelo3DId",
+                table: "Modelos3Ds",
+                column: "LicenciaModelo3DId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ReservaImpresoras_ClienteId",
                 table: "ReservaImpresoras",
                 column: "ClienteId");
@@ -629,9 +627,6 @@ namespace AppForSEII.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "LicenciasModelo3Ds");
 
             migrationBuilder.DropTable(
                 name: "LineaCompraAccesorios");
@@ -671,6 +666,9 @@ namespace AppForSEII.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "ReservaImpresoras");
+
+            migrationBuilder.DropTable(
+                name: "LicenciasModelo3Ds");
 
             migrationBuilder.DropTable(
                 name: "Piezas3Ds");
