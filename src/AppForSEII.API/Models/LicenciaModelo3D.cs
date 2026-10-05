@@ -19,6 +19,4 @@ public class LicenciaModelo3D
     public string Nombre { get; set; }
     public DateTime FechaExpiracion { get; set; }
 
-    public int Modelo3DId { get; set; }
-    public Modelo3D Modelo { get; set; }
 }

@@ -28,4 +28,6 @@ public class Modelo3D
 
     public int LicenciaModelo3DId { get; set; }
 
+    public LicenciaModelo3D Licencia { get; set; }
+
 }
