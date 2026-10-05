@@ -18,7 +18,8 @@ public class Material
 
     [MaxLength(30)]
     public string Nombre { get; set; }
-
+    [Precision(8, 2)]
     public decimal PrecioPorGramo { get; set; }
+    [Precision(8, 2)]
     public decimal StockGramos { get; set; }
 }

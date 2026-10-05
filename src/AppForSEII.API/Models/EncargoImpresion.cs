@@ -29,6 +29,7 @@ public class EncargoImpresion
     [Required, MaxLength(20)]
     public string NumeroTelefono { get; set; }
     public string? Descripcion { get; set; }
+    [Precision(8, 2)]
     public decimal PrecioTotal { get; set; }
     [Required, MaxLength(20)]
     public MetodoPago MetodoPago { get; set; }

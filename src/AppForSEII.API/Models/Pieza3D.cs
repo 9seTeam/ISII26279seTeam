@@ -19,6 +19,7 @@ public class Pieza3D
     [MaxLength(30)]
     public string Nombre { get; set; }
 
+    [Precision(8, 2)]
     public decimal Peso { get; set; }
     public CategoriaPieza Categoria { get; set; }
 

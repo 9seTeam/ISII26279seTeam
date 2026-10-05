@@ -23,8 +23,11 @@ public class Modelo3D
     [MaxLength(30)]
     public string Categoria { get; set; } 
     public FormatoModelo3D Formato { get; set; }
+    [Precision(8, 2)]
     public decimal Precio { get; set; }
 
     public int LicenciaModelo3DId { get; set; }
+
     public LicenciaModelo3D Licencia { get; set; }
+
 }

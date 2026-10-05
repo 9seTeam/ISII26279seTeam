@@ -215,22 +215,13 @@ namespace AppForSEII.API.Data {
                 return;
             }
 
-            var licenciaPersonal = new LicenciaModelo3D {
-                Nombre = "Uso personal",
-                FechaExpiracion = DateTime.Now.AddYears(1)    // expira dentro de un año
-            };
-            var licenciaTemporal = new LicenciaModelo3D {
-                Nombre = "Licencia temporal",
-                FechaExpiracion = DateTime.Now.AddDays(20)   // expira en menos de un mes
-            };
-
-            dbContext.LicenciasModelo3Ds.AddRange(licenciaPersonal, licenciaTemporal);
+           
             dbContext.SaveChanges();   // necesario para que las licencias tengan Id
 
             dbContext.Modelos3Ds.AddRange(
-                new Modelo3D { Nombre = "Dragon articulado", Categoria = "Miniaturas", Formato = FormatoModelo3D.STL, Precio = 9.99m, LicenciaModelo3DId = licenciaPersonal.Id },
-                new Modelo3D { Nombre = "Torre de Pisa figura", Categoria = "Decoracion", Formato = FormatoModelo3D.OBJ, Precio = 4.50m, LicenciaModelo3DId = licenciaPersonal.Id },
-                new Modelo3D { Nombre = "Pack figuras ajedrez", Categoria = "Miniaturas", Formato = FormatoModelo3D.TresMF, Precio = 14.90m, LicenciaModelo3DId = licenciaTemporal.Id }
+                new Modelo3D { Nombre = "Dragon articulado", Categoria = "Miniaturas", Formato = FormatoModelo3D.STL, Precio = 9.99m, LicenciaModelo3DId = 0},
+                new Modelo3D { Nombre = "Torre de Pisa figura", Categoria = "Decoracion", Formato = FormatoModelo3D.OBJ, Precio = 4.50m, LicenciaModelo3DId =0 },
+                new Modelo3D { Nombre = "Pack figuras ajedrez", Categoria = "Miniaturas", Formato = FormatoModelo3D.TresMF, Precio = 14.90m, LicenciaModelo3DId = 0 }
             );
             dbContext.SaveChanges();
         }

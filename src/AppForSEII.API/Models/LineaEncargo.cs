@@ -15,7 +15,9 @@ public class LineaEncargo
     [Key]
     public int Id { get; set; }
     public int Cantidad { get; set; }
+    [Precision(8, 2)]
     public decimal PrecioUnidad { get; set; }
+    [Precision(8, 2)]
     public decimal Subtotal { get; set; }
 
      public int EncargoImpresionId { get; set; }

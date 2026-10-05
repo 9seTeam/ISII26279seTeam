@@ -27,6 +27,7 @@ public class CompraAccesorios
     public string DireccionEnvio { get; set; } 
     [MaxLength(10)] [Required]
     public string NumeroTelefono { get; set; } 
+    [Precision(8, 2)]
     public decimal PrecioTotal { get; set; }
     [Required]
     public MetodoPago MetodoPago { get; set; }
