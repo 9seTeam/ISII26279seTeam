@@ -36,6 +36,7 @@ public class CompraModelo3D
 
     [MaxLength(50)]
     public string? Descripcion { get; set; }
+    [Precision(8, 2)]
     public decimal PrecioTotal { get; set; }
 
     [Required]

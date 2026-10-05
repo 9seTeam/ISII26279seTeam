@@ -16,7 +16,9 @@ public class LineaCompraModelo
     [Key]
     public int Id { get; set; }
     public int CantidadLicencias { get; set; }
+    [Precision(8, 2)]
     public decimal PrecioUnidad { get; set; }
+    [Precision(8, 2)]
     public decimal Subtotal { get; set; }
 
      public int CompraModelo3DId { get; set; }

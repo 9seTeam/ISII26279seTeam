@@ -26,6 +26,7 @@ public class ReservaImpresora
     public string ApellidosCliente { get; set; } 
     [Required, MaxLength(100)]
     public string DireccionFacturacion { get; set; } 
+    [Precision(8, 2)]
     public decimal PrecioTotal { get; set; }
     [Required]
     public MetodoPago Metodo { get; set; }

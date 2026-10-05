@@ -16,6 +16,7 @@ public class LineaReserva
     [Key]
     public int Id { get; set; }
     public TiempoReserva TiempoReserva { get; set; }
+    [Precision(8, 2)]
     public decimal PrecioSubtotal { get; set; }
 
     public int ReservaImpresoraId { get; set; }

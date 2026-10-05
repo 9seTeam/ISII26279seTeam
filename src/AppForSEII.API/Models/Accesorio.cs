@@ -23,6 +23,7 @@ public class Accesorio
     [MaxLength(10)]
     public string Compatibilidad { get; set; }
     public int CantidadDisponible { get; set; }
+    [Precision(8, 2)]
     public decimal Precio { get; set; }
 
 }
