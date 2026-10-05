@@ -26,5 +26,5 @@ public class Modelo3D
     public decimal Precio { get; set; }
 
     public int LicenciaModelo3DId { get; set; }
-    public LicenciaModelo3D Licencia { get; set; }
+
 }
