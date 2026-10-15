@@ -6,12 +6,13 @@ public class Modelo3D
     {
     }
 
-    public Modelo3D(string nombre, string categoria, FormatoModelo3D formato, decimal precio)
+    public Modelo3D(string nombre, string categoria, FormatoModelo3D formato, decimal precio, LicenciaModelo3D licencia)
     {
         Nombre = nombre;
         Categoria = categoria;
         Formato = formato;
         Precio = precio;
+        Licencia = licencia;
     }
 
     [Key]

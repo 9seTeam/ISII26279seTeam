@@ -218,10 +218,13 @@ namespace AppForSEII.API.Data {
            
             dbContext.SaveChanges();   // necesario para que las licencias tengan Id
 
+            var licenciaPersonal = new LicenciaModelo3D("Uso personal", DateTime.Now.AddYears(1));
+            var licenciaTemporal = new LicenciaModelo3D("Licencia temporal", DateTime.Now.AddDays(20));
+
             dbContext.Modelos3Ds.AddRange(
-                new Modelo3D { Nombre = "Dragon articulado", Categoria = "Miniaturas", Formato = FormatoModelo3D.STL, Precio = 9.99m, LicenciaModelo3DId = 0},
-                new Modelo3D { Nombre = "Torre de Pisa figura", Categoria = "Decoracion", Formato = FormatoModelo3D.OBJ, Precio = 4.50m, LicenciaModelo3DId =0 },
-                new Modelo3D { Nombre = "Pack figuras ajedrez", Categoria = "Miniaturas", Formato = FormatoModelo3D.TresMF, Precio = 14.90m, LicenciaModelo3DId = 0 }
+                new Modelo3D { Nombre = "Dragon articulado", Categoria = "Miniaturas", Formato = FormatoModelo3D.STL, Precio = 9.99m, Licencia = licenciaPersonal},
+                new Modelo3D { Nombre = "Torre de Pisa figura", Categoria = "Decoracion", Formato = FormatoModelo3D.OBJ, Precio = 4.50m, Licencia = licenciaPersonal},
+                new Modelo3D { Nombre = "Pack figuras ajedrez", Categoria = "Miniaturas", Formato = FormatoModelo3D.TresMF, Precio = 14.90m,Licencia = licenciaTemporal}
             );
             dbContext.SaveChanges();
         }
